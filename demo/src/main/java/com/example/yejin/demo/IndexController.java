@@ -17,12 +17,17 @@ public class IndexController {
     @PostMapping("/join")
     public String test(@RequestParam String id, @RequestParam String password, @RequestParam String email, 
     @RequestParam String name, @RequestParam String repeat){
-        return id + "  " + password + "" + repeat + name + "" + email + " " ; 
+        return "아이디= " + id +"비밀번호= "+ password + "비밀번호 확인= " 
+        + repeat + "이름 = " + name + " 이메일= " + email  ; 
     }
+
+   
 
     @GetMapping("/test")
     public String index(){
         System.out.println("왜~~~~");
         return "hi";
     }
+
+
 }

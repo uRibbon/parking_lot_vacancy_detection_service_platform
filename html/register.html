@@ -39,26 +39,26 @@
                             <form id="registerForm" name="registerForm" method="POST">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleID"
+                                        <input type="text" class="form-control form-control-user" id="id" name="id"
                                             placeholder="ID">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleName"
+                                        <input type="text" class="form-control form-control-user" id="name" name="name"
                                             placeholder="이름">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" id="email" name="email"
                                         placeholder="Email Address" autocomplete="new-email">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="비밀번호">
+                                            id="password" name="password" placeholder="비밀번호">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="비밀번호 확인">
+                                            id="repeat" name="repeat" placeholder="비밀번호 확인">
                                     </div>
                                 </div>
                                 <input class="btn btn-primary btn-user btn-block"  value="회원 등록 "onclick="register();">
@@ -102,18 +102,20 @@
         //ajax
         function register(){
             var formData = $('#registerForm').serialize();
-            var p1 = document.getElementById('exampleInputPassword').value;
-            var p2 = document.getElementById('exampleRepeatPassword').value;
+            var p1 = document.getElementById('password').value;
+            var p2 = document.getElementById('repeat').value;
             if( p1 != p2 ) {
             alert("비밀번호가 일치 하지 않습니다");
-            return false;}       
+            //return false;}   
+            }    
             else{
             alert("비밀번호가 일치합니다");
-            return true;}
+            //return true;}
+            }
             //폼 데이터 확인
             console.log(formData);
             // 로그인 api 호출
-            }
+            
             
             $.ajax({
                 url:"http://localhost:8088/join",
@@ -128,6 +130,7 @@
                         console.log("error")
                 }
             })
+        }
         
     </script>
    
